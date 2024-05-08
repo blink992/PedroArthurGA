@@ -30,8 +30,7 @@ public class Player {
     // Cor do jogador
     private Color color = Color.white;
 
-    // Contador estático para acompanhar instâncias da classe Player
-    private static int count = 0;
+   
 
     // Construtor da classe Player
     public Player(int x, int y){
