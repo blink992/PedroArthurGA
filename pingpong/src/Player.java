@@ -39,3 +39,58 @@ public class Player {
         this.y = y;
         this.score = 0; // Inicializando a pontuação como zero
     }
+  // Método para obter a coordenada y do jogador
+    public int getY(){
+        return this.y;
+    }
+
+    // Método para definir a direção do jogador
+    public void setDirection(int direction){
+        this.direction = direction * this.velocity;
+    }
+
+    // Método para obter a direção do jogador
+    public int getDirection() {
+        return this.direction;
+    }
+
+    // Método para obter a largura do jogador
+    public int getWidth(){
+        return this.width;
+    }
+
+    // Método para obter a altura do jogador
+    public int getHeight(){
+        return this.height;
+    }
+
+    // Método para obter a pontuação do jogador
+    public int getScore(){
+        return this.score;
+    }
+
+    // Método para incrementar a pontuação do jogador
+    public void incrementScore(){
+        this.score++;
+    }
+
+    // Método para desenhar o jogador na tela
+    public void draw(Graphics g){        
+        g.setColor(this.color); // Define a cor do Jogador
+        g.fillRect(this.x, this.y, this.width, this.height); // Desenha um Retângulo preenchido pela cor definida anteriormente
+    }
+
+    // Método para atualizar a posição do jogador
+    public void updatePosition(){       
+        // Verifica se a próxima posição não ultrapassa o limite superior
+        if((this.y + this.direction) < 0)
+            this.y = 0;
+        // Verifica se a próxima posição não ultrapassa o limite inferior
+        else if((this.y + this.direction) > (Game.height - this.height))
+            this.y = (Game.height - this.height);
+        else
+            // Move o jogador na direção definida
+            this.y = this.y + this.direction;
+    }
+}
+
